@@ -1,0 +1,402 @@
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  font-family: Arial, sans-serif;
+  box-sizing: border-box; /* Ensures padding and borders are included in width and height */
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit; /* Applies border-box to all elements */
+}
+
+.background {
+  background-image: url("./Images/Background.jpg"); /* Replace with the actual image URL */
+  background-size: cover;
+  background-position: center;
+  height: 100vh; /* Use viewport height for better control */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-align: center;
+  position: relative;
+}
+
+.content {
+  z-index: 2;
+  padding: 20px; /* Adds some padding for better readability */
+}
+
+.content h1 {
+  font-size: 50px;
+  margin-bottom: 10px;
+}
+
+.content p {
+  font-size: 24px;
+  margin-bottom: 20px;
+}
+
+.content .buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+}
+
+.content .buttons a {
+  padding: 10px 20px;
+  background-color: white;
+  color: black;
+  text-decoration: none;
+  border-radius: 20px;
+  font-weight: bold;
+  transition: background-color 0.3s ease; /* Adds smooth transition for hover */
+}
+
+.content .buttons a:hover {
+  background-color: #e0e0e0; /* Hover effect */
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.navbar a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  padding: 0 15px;
+}
+
+.navbar {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.5
+  ); /* Optional: to make the navbar stand out */
+  z-index: 3;
+}
+
+.navbar .logo {
+  font-size: 24px;
+  font-weight: bold;
+  color: white;
+}
+
+.navbar .menu {
+  display: flex;
+  gap: 20px;
+}
+
+.navbar .menu a {
+  color: white;
+  text-decoration: none;
+  font-size: 18px;
+  transition: background-color 0.3s ease, font-size 0.3s ease; /* Smooth transition */
+  padding: 8px 16px;
+  border-radius: 5px;
+  /* border-radius: 50%; */
+}
+
+.navbar .menu a:hover {
+  background-color: rgba(255, 255, 255, 0.3); /* Background color on hover */
+  font-size: 20px; /* Increase font size on hover */
+  border-radius: 50%;
+}
+
+.navbar .menu a.active {
+  font-size: 20px;
+  border-radius: 50%;
+}
+/* -----------------------------------------------------about---------------------------------------- */
+.about-section {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding: 50px;
+  background-color: #1e1e1e;
+  color: #e0e0e0;
+  width: 100%;
+  height: 100vh; /* Full viewport height */
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.divider {
+  width: 60%;
+  height: 2px;
+  background-color: #e0e0e0;
+  color: #e0e0e0;
+  margin: 40px auto;
+  border: none;
+  border: #e0e0e0 1px solid;
+}
+
+/* .divider-top {
+  margin-top: 30px;
+}
+
+.divider-bottom {
+  margin-bottom: 40px;
+} */
+
+.about-me-heading {
+  font-size: 36px;
+  color: #e0e0e0;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  letter-spacing: 2px;
+  font-weight: 700;
+  text-align: center;
+}
+
+.about-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 40px;
+  max-width: 1200px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.about-image,
+.about-text {
+  flex: 1;
+  width: 50%;
+}
+
+.about-image {
+  display: flex;
+  justify-content: center;
+}
+
+.about-image img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  border: 3px solid #e0e0e0;
+}
+
+.about-text {
+  text-align: left;
+}
+
+.about-text p {
+  margin-bottom: 20px;
+  text-align: justify;
+}
+
+.about-info {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.about-info ul {
+  list-style-type: none;
+  padding: 0;
+  margin: 0px 64px 0px 0px;
+}
+
+.about-info li {
+  margin-bottom: 10px;
+}
+
+.about-info li::before {
+  content: "•";
+  color: #e0e0e0;
+  font-weight: bold;
+  display: inline-block;
+  width: 1em;
+  margin-left: -1em;
+}
+/* peojectsss */
+.projects-section {
+  padding: 50px;
+  text-align: center;
+  background-color: #1e1e1e;
+  color: #e4e4e4;
+}
+
+.projects-section h2 {
+  font-size: 36px;
+  margin-bottom: 30px;
+}
+
+.projects-container {
+  display: flex;
+  justify-content: center;
+  gap: 30px; /* Space between the project cards */
+  flex-wrap: wrap;
+}
+
+.project-card {
+  width: 30%;
+  height: auto; /* Adjusted height to be auto */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  overflow: hidden; /* Ensures content stays within the card */
+  background-color: #292929;
+  transition: transform 0.3s ease, border-color 0.3s ease;
+}
+
+.project-card img {
+  width: 100%;
+  height: 50%; /* Adjusted to ensure image doesn't overflow */
+  object-fit: cover;
+}
+
+.project-card h3 {
+  padding: 10px; /* Reduced padding */
+  font-size: 24px;
+  margin: 0;
+}
+
+.project-card p {
+  padding: 0 15px 10px; /* Reduced bottom padding */
+  text-align: justify;
+  margin-top: 5px; /* Reduced space between h3 and p */
+}
+
+.project-card .source-code-container {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 15px; /* Padding around the buttons */
+  background-color: #292929; /* Match the card background */
+}
+
+.project-card .source-code {
+  width: 48%; /* Make buttons take up half space each with some gap */
+  text-align: center;
+  padding: 10px;
+  background: #3498db;
+  color: #fff;
+  text-decoration: none;
+  border-radius: 5px;
+  transition: background-color 0.3s ease;
+}
+
+.project-card:hover {
+  transform: scale(1.05); /* Slightly enlarges the card on hover */
+  border-color: #3498db; /* Highlights the border */
+}
+
+.project-card .source-code:hover {
+  background: #2980b9; /* Hover effect */
+}
+
+/* -----------------------------------------------------contact---------------------------------------- */
+
+.contact-section {
+  background-color: #1e1e1e;
+  padding: 50px;
+  text-align: center;
+  color: #ffffff;
+}
+
+.map-container,
+.contact-form {
+  display: inline-block;
+  vertical-align: top;
+  width: 48%;
+  box-sizing: border-box;
+}
+
+.contact-form {
+  max-width: none; /* Remove the max-width to fit side by side */
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+  height: 450px; /* Match the height of the map */
+  justify-content: space-between; /* Distribute space evenly */
+}
+
+.contact-form input,
+.contact-form textarea {
+  padding: 15px;
+  margin-bottom: 15px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  font-size: 16px;
+  box-sizing: border-box; /* Ensures padding doesn't affect width */
+}
+
+.contact-form textarea {
+  flex-grow: 1; /* Expands textarea to fill remaining space */
+  resize: none; /* Disable manual resizing to maintain layout */
+  height: auto; /* Allow the textarea to take up available space */
+}
+
+.contact-form button {
+  padding: 15px;
+  background-color: #3498db;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 18px;
+  transition: background-color 0.3s ease; /* Adds smooth transition for hover */
+}
+
+.contact-form button:hover {
+  background-color: #2980b9;
+}
+/* ------------------------------------------------------footer----------------------------------------- */
+.footer {
+  background-color: black;
+  color: #fff;
+  padding: 20px 0;
+  text-align: center;
+}
+
+.footer p {
+  margin: 0;
+  font-size: 14px;
+}
+
+.footer .social-links {
+  list-style: none;
+  padding: 0;
+  margin: 10px 0 0;
+  display: flex;
+  justify-content: center;
+  gap: 15px;
+}
+
+.footer .social-links li {
+  display: inline;
+}
+
+.footer .social-links a {
+  color: #fff;
+  text-decoration: none;
+}
+
+.footer .social-links a:hover {
+  text-decoration: underline;
+}
