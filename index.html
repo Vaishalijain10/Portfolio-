@@ -142,12 +142,13 @@
         <div class="contact-form">
             <form action="/api/send-email" method="POST">
                 <input type="text" name="name" placeholder="Name" required>
-                <input type="email" name="email" placeholder="Email" required>
+                <input type="email" name="_replyto" placeholder="Email" required>
                 <input type="text" name="subject" placeholder="Subject" required>
-                <textarea name="message" placeholder="Message" required></textarea>
+                <textarea name="message" placeholder="Project Details" required></textarea>
                 <button type="submit">Contact Me</button>
             </form>
         </div>
+
 
 
     </section>

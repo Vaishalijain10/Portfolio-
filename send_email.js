@@ -1,35 +1,41 @@
-// api/send-email.js
+import Mailjet from "node-mailjet";
+import "dotenv/config";
 
-import { Client } from "@sendgrid/mail";
+// Initialize the Mailjet client with your API keys
+const mailjet = Mailjet.connect(
+  process.env.MAILJET_API_KEY,
+  process.env.MAILJET_API_SECRET
+);
 
 export default async function handler(req, res) {
   if (req.method === "POST") {
-    const { name, email, subject, message } = req.body;
-
-    // Initialize SendGrid client
-    const client = new Client();
-    client.setApiKey(process.env.SENDGRID_API_KEY);
-
-    // Define the email content
-    const msg = {
-      to: "vaishalijain.vj.10@gmail.com", // Replace with your email address
-      from: email, // This should be a verified sender in SendGrid
-      subject: `Contact Form Submission: ${subject}`,
-      html: `
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Subject:</strong> ${subject}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
-    };
+    const { name, _replyto, subject, message } = req.body;
 
     try {
-      await client.send(msg);
+      const response = await mailjet.post("send").request({
+        Messages: [
+          {
+            From: {
+              Email: _replyto,
+              Name: name,
+            },
+            To: [
+              {
+                Email: "vaishalijain.vj.10@gmail.com",
+                Name: "Vaishali Jain",
+              },
+            ],
+            Subject: subject,
+            TextPart: message,
+            HTMLPart: `<h3>${subject}</h3><p>${message}</p>`,
+          },
+        ],
+      });
+
       res.status(200).json({ success: true });
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: "Failed to send email" });
+      console.error("Error sending email:", error);
+      res.status(500).json({ success: false, error: "Failed to send email" });
     }
   } else {
     res.setHeader("Allow", ["POST"]);
